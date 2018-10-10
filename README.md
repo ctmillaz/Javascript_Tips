@@ -277,7 +277,8 @@ const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived: function () {
-        console.log(this.name);   ## this.<property> allows you to use any property that was made available in the object.
+        console.log(this.name);   
+### this.<property> allows you to use any property that was made available in the object.
         console.log(this.cities);
 
         this.cities.forEach(function(city) {
@@ -295,11 +296,13 @@ user.printPlacesLived();
 const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
-    printPlacesLived: function () {	                          ###Declared property, so the keyword this works.
+    printPlacesLived: function () {	                          
+ ### Declared property, so the keyword this works.
         console.log(this.name);
         console.log(this.cities);
 
-        this.cities.forEach(function(city) {                      ###Anonymous function because it's not a declared property
+        this.cities.forEach(function(city) {                      
+ ### Anonymous function because it's not a declared property
             console.log(this.name + ' has lived in ' + city)
         });
     }
@@ -317,8 +320,8 @@ const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived: function () {	                          
-        const that = this;                                         ###Define reference that is equal to this.
-
+        const that = this;                                         
+### Define reference that is equal to this.
         this.cities.forEach(function(city) {                      
             console.log(this.name + ' has lived in ' + city)
         });
@@ -334,7 +337,8 @@ const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived: function () {
-        this.cities.forEach((city) => {                        ### remove function and add arrow
+        this.cities.forEach((city) => {                        
+### remove function and add arrow
             console.log(this.name + ' has lived in ' + city)
         });
     }
@@ -347,7 +351,8 @@ const user = {
 const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
-    printPlacesLived: () => {                            ### remove function and add arrow here and you get Invalid, because arrow functions don't bind thier own this value.  It's no longer equal to it's value and goes up to the parent scope, which looks for this in the global scope or inital variables you created at the root level of the file.
+    printPlacesLived: () => {                            
+### remove function and add arrow here and you get Invalid, because arrow functions don't bind thier own this value.  It's no longer equal to it's value and goes up to the parent scope, which looks for this in the global scope or inital variables you created at the root level of the file.
         this.cities.forEach((city) => {                        
             console.log(this.name + ' has lived in ' + city)
         });
@@ -361,7 +366,8 @@ const user = {
 const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
-    printPlacesLived() {                                  ### We removed the colon and arrow and this is valid.
+    printPlacesLived() {                                  
+### We removed the colon and arrow and this is valid.
         this.cities.forEach((city) => {
             console.log(this.name + ' has lived in ' + city)
         });
@@ -384,12 +390,14 @@ const user = {
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived() {
         const cityMessages = this.cities.map((city) => {          
-### function gets called one time for each item in the array like forEach. We have access to that item in the first arguement.  ForEach ### just lets you print items out to the screen. Map allows you to tranform each item and give you a new array back.  
+### function gets called one time for each item in the array like forEach. We have access to that item in the first arguement.  
+### ForEach just lets you print items out to the screen. Map allows you to tranform each item and give you a new array back.  
             return city;
         });
 
         this.cities.forEach((city) => {
-            console.log(this.name + ' has lived in ' + city)      ### forEach version
+            console.log(this.name + ' has lived in ' + city)      
+### forEach version
         });
     }
 };
@@ -405,7 +413,8 @@ const user = {
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived() {
         const cityMessages = this.cities.map((city) => {
-            return city + '!';                              ### Allows you to add on to the existing return.
+            return city + '!';                              
+### Allows you to add on to the existing return.
         });
 
        return cityMessages;
@@ -423,7 +432,8 @@ const user = {
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived() {
         const cityMessages = this.cities.map((city) => {
-            return this.name + ' has lived in ' + city + '!';                              ### Allows you to add on to the existing return.
+            return this.name + ' has lived in ' + city + '!';                              
+### Allows you to add on to the existing return.
         });
 
        return cityMessages;
@@ -441,9 +451,11 @@ const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived() {
-        return this.cities.map((city) => {                            ### Remove const and city Messages
+        return this.cities.map((city) => {                            
+### Remove const and city Messages
             return this.name + ' has lived in ' + city + '!';
-        });                                                            ### Remove city Messages
+        });                                                            
+### Remove city Messages
     }
 };
 
@@ -457,7 +469,8 @@ const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived() {
-        return this.cities.map((city) => this.name + ' has lived in ' + city + '!');   ### Cleaned up version
+        return this.cities.map((city) => this.name + ' has lived in ' + city + '!');   
+### Cleaned up version
     }
 };
 

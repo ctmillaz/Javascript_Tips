@@ -1,4 +1,4 @@
-# Javascript_Tips
+# Javascript Logic
 
 ### Example of using javascript in html.
 `function getLocation(location){
@@ -26,7 +26,8 @@
 `Chad ? Chad : 'Anonymous'`
 ### Ans: Chad
 
-`<p>{appObject.options.length > 0 ? 'Here are your options': 'No options'}</p>`         ### curly braces inside p tags
+`<p>{appObject.options.length > 0 ? 'Here are your options': 'No options'}</p>`         
+### curly braces inside p tags
 ### Example4:
 
 
@@ -44,7 +45,8 @@
 ### Ans: false
 
 ### Example 3:
-`{user.age >= 18 && <p>Age: {user.age}</p>}` ###Everything is surrounded by curly braces to use javascript.  And has html tags inside.
+`{user.age >= 18 && <p>Age: {user.age}</p>}` 
+### Everything is surrounded by curly braces to use javascript.  And has html tags inside.
 ### Example 1:
 `17 >= 18 && <p>Age: 17</p>`
 ### Ans: blank, because the 17 is less than 18, so the p tags can't be shown...both sides are not true.

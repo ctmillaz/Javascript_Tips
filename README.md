@@ -62,7 +62,7 @@
 
 
 -------------------------------------------------------------------------------------------------------------------------------
-#ES6
+# ES6
 
 ## **NOTE** You should only use const and let.  Never var.
 
@@ -173,3 +173,45 @@ console.log(firstName)`
 ### Ans:Cort
 ### Ans:Cort
 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+# Arrows
+
+
+### Defining a function
+`const square = function (x) {
+    return x * x;
+}`
+
+### Another syntax for the initial function
+`function square (x) {
+    return x * x;
+}`
+
+
+### Using arrows in that function.  This way is different and works, but isn't any more advantageous than the first way.
+`const squareArrow = (x) => {
+    return x * x;
+}
+
+console.log(squareArrow(9));`
+
+### Differen way to use arrows, which is more advantageous because you don't need returns. The return is implicit.
+
+`const squareArrow =(x) => x * x;
+
+console.log(squareArrow(4));`
+
+
+### Verbose example and example with return arrow function, but these use strings.
+
+`const getFirstName = (fullName) => {
+    return fullName.split(' ')[0];
+}
+console.log(getFirstName('Cort Yonder'));
+
+const getFirstName2 = (fullName2) => fullName2.split(' ')[0];
+
+console.log(getFirstName2('Cort Yonder'));`

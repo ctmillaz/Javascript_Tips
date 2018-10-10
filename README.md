@@ -61,5 +61,115 @@
 
 
 
+-------------------------------------------------------------------------------------------------------------------------------
+#ES6
 
+## **NOTE** You should only use const and let.  Never var.
+
+
+
+## var can be changed by renaming variables or using the same reference with a new variable.
+
+### Example1:
+`var nameVar = 'Andrew';
+nameVar = 'Mike';
+console.log('nameVar',nameVar);`
+### Ans: nameVar Mike
+
+`var nameVar = 'Andrew';
+var nameVar = 'Mike';
+console.log('nameVar',nameVar);`
+### Ans: nameVar Mike
+
+
+## let is the same as var in that you can rename a reference, but you can't redefine with same reference
+
+`let nameLet = 'Jen';
+nameLet = 'Julie';
+console.log('nameLet', nameLet);`
+### Ans: Julie
+
+`let nameLet = 'Jen';
+let nameLet = 'Julie';
+console.log('nameLet', nameLet);`
+### Ans: Error/Invalid
+
+## const is similar to a final in java.  You can't change a refence to a new variable and you cand redefine.
+
+`const nameConst = 'Frank';
+nameConst = 'Gunther';
+console.log('nameLet', nameConst);`
+### Ans: Invalid
+
+`const nameConst = 'Frank';
+const nameConst = 'Gunther';
+console.log('nameLet', nameConst);`
+### Ans: Invalid
+
+
+
+
+## Scope:   var, let, and const are the same for scope.
+
+### Example:
+`function getPetName(){
+    var petName = 'Hal';  ## var/let/const
+    return petName;
+}
+
+getPetName();
+console.log(petName);  ## can't find petName, because it is embedded in the function.`
+### Ans: Invalid
+
+
+
+### Example2:
+
+`function getPetName(){
+    const petName = 'Hal';
+    return petName;
+}`
+
+`const petName = getPetName();  ## If define the function with a variable, you can then use petName in the console log, because it's in scope.
+console.log(petName);`
+### Ans: Hal
+
+
+## **NOTE* var based variables are function scoped.  let/const are blocked scoped which includes functions.
+
+### Example 3:
+`if(fullName){
+    var firstName = fullName.split(' ')[0]    ###Using var
+    console.log(firstName);
+}
+
+console.log(firstName)`
+### Ans: Cort
+### Ans: Cort
+
+### Example4:
+
+`if(fullName){
+    const firstName = fullName.split(' ')[0]   ##Using const or let
+    console.log(firstName);
+}
+
+console.log(firstName)`
+### Ans: Cort
+### Ans: Invalid/Error      
+### you can't use the variable outside the block if it is defined in the block
+
+
+### Example5: The work-around for using let/const in the same way variable does.
+`var fullName = 'Cort Yonder';
+let firstName;                    ##Pull out the variable and don't define it.
+
+if(fullName){
+    const firstName = fullName.split(' ')[0]
+    console.log(firstName);
+}
+
+console.log(firstName)`
+### Ans:Cort
+### Ans:Cort
 

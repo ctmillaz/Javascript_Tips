@@ -32,7 +32,7 @@
 
 
 
-## Logical And Operator
+## Logical "&&" Operator
 
 `true && <string>`
 ### Both need to be true for the string to show up.

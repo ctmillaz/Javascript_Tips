@@ -180,7 +180,7 @@ console.log(firstName)`
 # Arrows
 
 
-### Defining a function
+## Defining a function
 `const square = function (x) {
     return x * x;
 }`
@@ -199,14 +199,12 @@ console.log(firstName)`
 console.log(squareArrow(9));`
 
 ### Differen way to use arrows, which is more advantageous because you don't need returns. The return is implicit.
-
 `const squareArrow =(x) => x * x;
 
 console.log(squareArrow(4));`
 
 
 ### Verbose example and example with return arrow function, but these use strings.
-
 `const getFirstName = (fullName) => {
     return fullName.split(' ')[0];
 }
@@ -215,3 +213,232 @@ console.log(getFirstName('Cort Yonder'));
 const getFirstName2 = (fullName2) => fullName2.split(' ')[0];
 
 console.log(getFirstName2('Cort Yonder'));`
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+# Arrows Part 2
+
+## **NOTE** With these new ES5 and ES6 syntax there is no need to use the keyword function if you know the correct syntax. It's like var, where just not needed anymore.
+
+### Example:
+`const add = function (a,b) {
+    console.log(arguments);
+    return a + b;
+};
+ 
+console.log(add(55, 1));`  
+### if you add in an additional number it will still come up in the arguements even though the parameters are only a and b.
+### 55 and 1 show up in the developer tools with console.log(arguements
+###Ans: 56
+
+
+## Using arrows for the same function
+### Example2:
+
+`const add = (a,b) => {
+    console.log(arguments);
+    return a + b;
+};
+ 
+console.log(add(55, 1, 1001));`
+### Ans: Invalid/Error     
+### This is becaue we are using arrows now, and arguments does not work in arrows any longer
+
+
+
+## Using this keyword
+
+### Example:
+`
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived: function () {
+        console.log(this.name);   ## this.<property> allows you to use any property that was made available in the object.
+        console.log(this.cities);
+
+        this.cities.forEach(function(city) {
+
+        });
+    }
+};
+
+user.printPlacesLived();`
+
+
+### Example 2: 
+`const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived: function () {	                          ###Declared property, so the keyword this works.
+        console.log(this.name);
+        console.log(this.cities);
+
+        this.cities.forEach(function(city) {                      ###Anonymous function because it's not a declared property
+            console.log(this.name + ' has lived in ' + city)
+        });
+    }
+};
+
+user.printPlacesLived();`
+### Ans: Invalid/Error   
+### This is because the foEach function is trying to use this.name and this is not able to be used in an anonymous function.
+
+
+### Example3: The work around for not being able to use this.
+ `
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived: function () {	                          
+        const that = this;                                         ###Define reference that is equal to this.
+
+        this.cities.forEach(function(city) {                      
+            console.log(this.name + ' has lived in ' + city)
+        });
+    }
+};`
+### Ans: Cort has lived in Taiwan, etc, etc.
+
+
+### Example4: Arrow function version.  Benefits are the arrow function doesn't bind its own this value so you can use this in your return.
+`
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived: function () {
+        this.cities.forEach((city) => {                        ### remove function and add arrow
+            console.log(this.name + ' has lived in ' + city)
+        });
+    }
+};`
+### Ans: Cort has lived in Taiwan, etc, etc.
+
+### Example5: When not to use Arrow functions.
+`
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived: () => {                            ### remove function and add arrow here and you get Invalid, because arrow functions don't bind thier own this value.  It's no longer equal to it's value and goes up to the parent scope, which looks for this in the global scope or inital variables you created at the root level of the file.
+        this.cities.forEach((city) => {                        
+            console.log(this.name + ' has lived in ' + city)
+        });
+    }
+};`
+### Ans: Invalid
+
+### Example 6: How to fix that previous statement to work.  We need to remove the initial arrow statement
+`
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived() {                                  ### We removed the colon and arrow and this is valid.
+        this.cities.forEach((city) => {
+            console.log(this.name + ' has lived in ' + city)
+        });
+    }
+};`
+### Ans: Cort has lived in Taiwan, etc, etc.
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+# Using map instead of forEach
+
+### **NOTE** Map does not affect the initial array at all.
+`
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived() {
+        const cityMessages = this.cities.map((city) => {          
+### function gets called one time for each item in the array like forEach. We have access to that item in the first arguement.  ForEach ### just lets you print items out to the screen. Map allows you to tranform each item and give you a new array back.  
+            return city;
+        });
+
+        this.cities.forEach((city) => {
+            console.log(this.name + ' has lived in ' + city)      ### forEach version
+        });
+    }
+};
+
+user.printPlacesLived();`
+
+
+### Explaining what map can do(Simple Example):
+`
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived() {
+        const cityMessages = this.cities.map((city) => {
+            return city + '!';                              ### Allows you to add on to the existing return.
+        });
+
+       return cityMessages;
+    }
+};
+
+console.log(user.printPlacesLived());`
+
+
+### Explaining what map can do(Experienced Example):
+`
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived() {
+        const cityMessages = this.cities.map((city) => {
+            return this.name + ' has lived in ' + city + '!';                              ### Allows you to add on to the existing return.
+        });
+
+       return cityMessages;
+    }
+};
+
+console.log(user.printPlacesLived());`
+
+
+
+### Explaining what map can do(More Experienced Example):
+`
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived() {
+        return this.cities.map((city) => {                            ### Remove const and city Messages
+            return this.name + ' has lived in ' + city + '!';
+        });                                                            ### Remove city Messages
+    }
+};
+
+console.log(user.printPlacesLived());`
+
+
+### Explaining what map can do(Final Cleaned up Example):
+`
+const user = {
+    name: 'Cort',
+    cities: ['Taiwan', 'Tahiti', 'Port of You'],
+    printPlacesLived() {
+        return this.cities.map((city) => this.name + ' has lived in ' + city + '!');   ### Cleaned up version
+    }
+};
+
+console.log(user.printPlacesLived());
+`
+
+### Example of map with numbers:
+`
+const multiplier = {
+    numbers: [ 4, 7, 8],
+    multiplyBy: 2,
+    multiply () {
+        return this.numbers.map((number) => number * this.multiplyBy);
+    }
+};
+
+console.log(multiplier.multiply());`

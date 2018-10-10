@@ -5,7 +5,8 @@
   if (location){
     return <p>Location: {location}</p>;  ## This line is a javascript function with html in it.  It also uses a location property of another variable with javascript inside curly braces.
   }
-}`
+}
+`
 
 
 ## tertiary logic
@@ -124,44 +125,50 @@ console.log(petName);  ## can't find petName, because it is embedded in the func
 
 
 ### Example2:
-
-`function getPetName(){
+`
+function getPetName(){
     const petName = 'Hal';
     return petName;
-}`
+}
+`
 
 `const petName = getPetName();  ## If define the function with a variable, you can then use petName in the console log, because it's in scope.
-console.log(petName);`
+console.log(petName);
+`
 ### Ans: Hal
 
 
 ## **NOTE* var based variables are function scoped.  let/const are blocked scoped which includes functions.
 
 ### Example 3:
-`if(fullName){
+`
+if(fullName){
     var firstName = fullName.split(' ')[0]    ###Using var
     console.log(firstName);
 }
 
-console.log(firstName)`
+console.log(firstName)
+`
 ### Ans: Cort
 ### Ans: Cort
 
 ### Example4:
-
-`if(fullName){
+`
+if(fullName){
     const firstName = fullName.split(' ')[0]   ##Using const or let
     console.log(firstName);
 }
 
-console.log(firstName)`
+console.log(firstName)
+`
 ### Ans: Cort
 ### Ans: Invalid/Error      
 ### you can't use the variable outside the block if it is defined in the block
 
 
 ### Example5: The work-around for using let/const in the same way variable does.
-`var fullName = 'Cort Yonder';
+`
+var fullName = 'Cort Yonder';
 let firstName;                    ##Pull out the variable and don't define it.
 
 if(fullName){
@@ -169,7 +176,8 @@ if(fullName){
     console.log(firstName);
 }
 
-console.log(firstName)`
+console.log(firstName)
+`
 ### Ans:Cort
 ### Ans:Cort
 
@@ -181,38 +189,48 @@ console.log(firstName)`
 
 
 ## Defining a function
-`const square = function (x) {
+`
+const square = function (x) {
     return x * x;
-}`
+}
+`
 
 ### Another syntax for the initial function
-`function square (x) {
+`
+function square (x) {
     return x * x;
-}`
+}
+`
 
 
 ### Using arrows in that function.  This way is different and works, but isn't any more advantageous than the first way.
-`const squareArrow = (x) => {
+`
+const squareArrow = (x) => {
     return x * x;
 }
 
-console.log(squareArrow(9));`
+console.log(squareArrow(9));
+`
 
 ### Differen way to use arrows, which is more advantageous because you don't need returns. The return is implicit.
-`const squareArrow =(x) => x * x;
+`
+const squareArrow =(x) => x * x;
 
-console.log(squareArrow(4));`
+console.log(squareArrow(4));
+`
 
 
 ### Verbose example and example with return arrow function, but these use strings.
-`const getFirstName = (fullName) => {
+`
+const getFirstName = (fullName) => {
     return fullName.split(' ')[0];
 }
 console.log(getFirstName('Cort Yonder'));
 
 const getFirstName2 = (fullName2) => fullName2.split(' ')[0];
 
-console.log(getFirstName2('Cort Yonder'));`
+console.log(getFirstName2('Cort Yonder'));
+`
 
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -222,12 +240,14 @@ console.log(getFirstName2('Cort Yonder'));`
 ## **NOTE** With these new ES5 and ES6 syntax there is no need to use the keyword function if you know the correct syntax. It's like var, where just not needed anymore.
 
 ### Example:
-`const add = function (a,b) {
+`
+const add = function (a,b) {
     console.log(arguments);
     return a + b;
 };
  
-console.log(add(55, 1));`  
+console.log(add(55, 1));
+`  
 ### if you add in an additional number it will still come up in the arguements even though the parameters are only a and b.
 ### 55 and 1 show up in the developer tools with console.log(arguements
 ###Ans: 56
@@ -236,12 +256,14 @@ console.log(add(55, 1));`
 ## Using arrows for the same function
 ### Example2:
 
-`const add = (a,b) => {
+`
+const add = (a,b) => {
     console.log(arguments);
     return a + b;
 };
  
-console.log(add(55, 1, 1001));`
+console.log(add(55, 1, 1001));
+`
 ### Ans: Invalid/Error     
 ### This is becaue we are using arrows now, and arguments does not work in arrows any longer
 
@@ -264,11 +286,13 @@ const user = {
     }
 };
 
-user.printPlacesLived();`
+user.printPlacesLived();
+`
 
 
 ### Example 2: 
-`const user = {
+`
+const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived: function () {	                          ###Declared property, so the keyword this works.
@@ -281,7 +305,8 @@ user.printPlacesLived();`
     }
 };
 
-user.printPlacesLived();`
+user.printPlacesLived();
+`
 ### Ans: Invalid/Error   
 ### This is because the foEach function is trying to use this.name and this is not able to be used in an anonymous function.
 
@@ -298,7 +323,8 @@ const user = {
             console.log(this.name + ' has lived in ' + city)
         });
     }
-};`
+};
+`
 ### Ans: Cort has lived in Taiwan, etc, etc.
 
 
@@ -312,7 +338,8 @@ const user = {
             console.log(this.name + ' has lived in ' + city)
         });
     }
-};`
+};
+`
 ### Ans: Cort has lived in Taiwan, etc, etc.
 
 ### Example5: When not to use Arrow functions.
@@ -325,7 +352,8 @@ const user = {
             console.log(this.name + ' has lived in ' + city)
         });
     }
-};`
+};
+`
 ### Ans: Invalid
 
 ### Example 6: How to fix that previous statement to work.  We need to remove the initial arrow statement
@@ -338,7 +366,8 @@ const user = {
             console.log(this.name + ' has lived in ' + city)
         });
     }
-};`
+};
+`
 ### Ans: Cort has lived in Taiwan, etc, etc.
 
 
@@ -365,7 +394,8 @@ const user = {
     }
 };
 
-user.printPlacesLived();`
+user.printPlacesLived();
+`
 
 
 ### Explaining what map can do(Simple Example):
@@ -382,7 +412,8 @@ const user = {
     }
 };
 
-console.log(user.printPlacesLived());`
+console.log(user.printPlacesLived());
+`
 
 
 ### Explaining what map can do(Experienced Example):
@@ -399,7 +430,8 @@ const user = {
     }
 };
 
-console.log(user.printPlacesLived());`
+console.log(user.printPlacesLived());
+`
 
 
 
@@ -415,7 +447,8 @@ const user = {
     }
 };
 
-console.log(user.printPlacesLived());`
+console.log(user.printPlacesLived());
+`
 
 
 ### Explaining what map can do(Final Cleaned up Example):
@@ -441,4 +474,5 @@ const multiplier = {
     }
 };
 
-console.log(multiplier.multiply());`
+console.log(multiplier.multiply());
+`

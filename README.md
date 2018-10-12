@@ -515,3 +515,24 @@ const multiplier = {
 
 console.log(multiplier.multiply());
 `
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+## Classes1
+
+### An example of a class
+`
+class Person {
+    constructor(name = 'Anonymous') {
+        this.name = name;
+    }
+    getGreeting(){
+        //return 'Hi. I am ' + this.name + '!';
+        return `Hi. I am ${this.name}!`
+    }
+}
+`
+
+### Notice the $ in the return statement.  This is ES6 template strings.  You need to use backtick instead of apostrophe.
+### You can then add in a template from the constructor by using ${this.<variable>} or you can just use a static string like normal.

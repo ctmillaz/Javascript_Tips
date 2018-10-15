@@ -563,3 +563,12 @@ class Person {
 ### Undefined works the same as having no string
 `!!undefined`
 #### Solution: false 
+
+--------------------------------------------------------------------------------------------------------------------------------
+# React Components 
+
+### They are just ES6 classes that extend something React gives us.
+
+### In React your class has to be an upper case first character.
+
+### A React Component must define a render function

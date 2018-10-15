@@ -635,3 +635,6 @@ const getName = obj.getName.bind({name: 'My name'});
 
 console.log(getName());
 `
+
+
+### Typically you will want to bind to the keyword this, in the constructor, as opposed to in the render function.  That way you don't need to run it multiple times.

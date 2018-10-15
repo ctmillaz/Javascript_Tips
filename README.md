@@ -548,3 +548,48 @@ class Person {
 ### In React your class has to be an upper case first character.
 
 ### A React Component must define a render function
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+# Component Props
+
+### Adding in props is much like adding HTML attribtes,but it is really key/value pairs in React.
+
+### The key is some sort of string and the value could be anything we like (string, array, number or any other type).
+
+### When we create components, we can pass data into that same component
+
+### You can define props after a render function then use them in a component.
+
+
+### For example
+`
+render(){
+    const title = 'Indecision';
+    const subtitle = 'Put your life in the hands of a computer';
+    const options = ['Thing one', 'Thing two', 'Thing four'];
+`
+
+
+### Then used in the component like so.  First you use the component then add the key/value pairs as attributes.
+
+`
+<Options options={options}>
+`
+
+### If you want to use the key/value pair in your component's jsx.  You need to type this.props
+
+`
+class Options extends React.Component{
+  render(){
+    return (
+      <div>
+        {
+          this.props.options.map((option) => <Option key={option} optionText={option}/>)
+        }
+      </div>
+    );
+  }
+}
+`

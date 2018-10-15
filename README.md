@@ -609,3 +609,29 @@ class Options extends React.Component{
 ### Adding Alerts to a commponent involves creating a function with alert('<string');
 
 ### Once you have a function with an alert you can adda button to your jsx with an attribute of onClick = {this.<functionName>}
+  
+--------------------------------------------------------------------------------------------------------------------------------
+
+# Manual Binding
+
+### When ever you Event Handlers they will look the this binding.
+### We fix it by using the bind function
+### Example of how it is used
+`
+const obj = {
+  name: 'Vikram',
+  getName() {
+    return this.name;
+  }
+};
+
+const func = function () {
+  console.log(this);
+}
+
+func();
+
+const getName = obj.getName.bind({name: 'My name'});
+
+console.log(getName());
+`

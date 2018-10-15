@@ -396,24 +396,20 @@ const user = {
 # Using map instead of forEach
 
 ### **NOTE** Map does not affect the initial array at all.
+### function gets called one time for each item in the array like forEach. We have access to that item in the first arguement.  
+### ForEach just lets you print items out to the screen. Map allows you to tranform each item and give you a new array back. 
+### forEach version
 `
 const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived() {
         const cityMessages = this.cities.map((city) => { 
-`        
-### function gets called one time for each item in the array like forEach. We have access to that item in the first arguement.  
-### ForEach just lets you print items out to the screen. Map allows you to tranform each item and give you a new array back. 
-`
             return city;
         });
 
         this.cities.forEach((city) => {
             console.log(this.name + ' has lived in ' + city)
-`            
-### forEach version
-`
         });
     }
 };
@@ -430,7 +426,9 @@ const user = {
     printPlacesLived() {
         const cityMessages = this.cities.map((city) => {
             return city + '!';
-`            
+`          
+
+
 ### Allows you to add on to the existing return.
 `
         });
@@ -444,6 +442,7 @@ console.log(user.printPlacesLived());
 
 
 ### Explaining what map can do(Experienced Example):
+### Allows you to add on to the existing return.
 `
 const user = {
     name: 'Cort',
@@ -451,9 +450,6 @@ const user = {
     printPlacesLived() {
         const cityMessages = this.cities.map((city) => {
             return this.name + ' has lived in ' + city + '!';
-`            
-### Allows you to add on to the existing return.
-`
         });
 
        return cityMessages;
@@ -466,6 +462,7 @@ console.log(user.printPlacesLived());
 
 
 ### Explaining what map can do(More Experienced Example):
+### Remove const and city Messages
 `
 const user = {
     name: 'Cort',
@@ -477,9 +474,6 @@ const user = {
 `
             return this.name + ' has lived in ' + city + '!';
         });
-`        
-### Remove city Messages
-`
     }
 };
 
@@ -488,15 +482,13 @@ console.log(user.printPlacesLived());
 
 
 ### Explaining what map can do(Final Cleaned up Example):
+### Cleaned up version
 `
 const user = {
     name: 'Cort',
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived() {
         return this.cities.map((city) => this.name + ' has lived in ' + city + '!');
-`
-### Cleaned up version
-`
     }
 };
 

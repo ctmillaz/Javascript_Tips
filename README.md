@@ -593,3 +593,19 @@ class Options extends React.Component{
   }
 }
 `
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+# Events & Methods
+
+### Refencing something involves using this.<attribute>
+
+### Calling something involves using this.<attribute> () , like a function
+
+
+### Adding a trim() to the end of a a script that is grabbing something out of an array will remove the extra spaces at the beginning and end of a string.
+
+### Adding Alerts to a commponent involves creating a function with alert('<string');
+
+### Once you have a function with an alert you can adda button to your jsx with an attribute of onClick = {this.<functionName>}

@@ -426,11 +426,9 @@ const user = {
         const cityMessages = this.cities.map((city) => {
             return city + '!';
         });
-
        return cityMessages;
     }
 };
-
 console.log(user.printPlacesLived());
 `
 
@@ -445,11 +443,9 @@ const user = {
         const cityMessages = this.cities.map((city) => {
             return this.name + ' has lived in ' + city + '!';
         });
-
        return cityMessages;
     }
 };
-
 console.log(user.printPlacesLived());
 `
 
@@ -463,14 +459,10 @@ const user = {
     cities: ['Taiwan', 'Tahiti', 'Port of You'],
     printPlacesLived() {
         return this.cities.map((city) => {
-`        
-### Remove const and city Messages
-`
             return this.name + ' has lived in ' + city + '!';
         });
     }
 };
-
 console.log(user.printPlacesLived());
 `
 
@@ -485,7 +477,6 @@ const user = {
         return this.cities.map((city) => this.name + ' has lived in ' + city + '!');
     }
 };
-
 console.log(user.printPlacesLived());
 `
 
@@ -498,7 +489,6 @@ const multiplier = {
         return this.numbers.map((number) => number * this.multiplyBy);
     }
 };
-
 console.log(multiplier.multiply());
 `
 

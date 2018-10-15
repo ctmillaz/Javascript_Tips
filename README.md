@@ -407,18 +407,17 @@ const user = {
         const cityMessages = this.cities.map((city) => { 
             return city;
         });
-
         this.cities.forEach((city) => {
             console.log(this.name + ' has lived in ' + city)
         });
     }
 };
-
 user.printPlacesLived();
 `
 
 
 ### Explaining what map can do(Simple Example):
+### Allows you to add on to the existing return.
 `
 const user = {
     name: 'Cort',
@@ -426,11 +425,6 @@ const user = {
     printPlacesLived() {
         const cityMessages = this.cities.map((city) => {
             return city + '!';
-`          
-
-
-### Allows you to add on to the existing return.
-`
         });
 
        return cityMessages;

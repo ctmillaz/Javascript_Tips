@@ -536,3 +536,30 @@ class Person {
 
 ### Notice the $ in the return statement.  This is ES6 template strings.  You need to use backtick instead of apostrophe.
 ### You can then add in a template from the constructor by using ${this.<variable>} or you can just use a static string like normal.
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+# Class2
+
+### An empty string is called a falsy value, and would fail an if condition
+` '' `
+
+### Flip it using a logical NOT
+`!''`
+#### Solution: true
+
+
+### The logical NOT works similar to an on and off switch.  If you do a logical NOT twice you receive false again.
+`!!''`
+#### Solution: false
+
+
+### A string with a value is called a truthy value.  If you do two logical NOT's they will void each other, but give you a boolean.
+`!!'myname'`
+#### Solution: true
+
+
+### Undefined works the same as having no string
+`!!undefined`
+#### Solution: false 

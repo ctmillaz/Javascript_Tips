@@ -1,12 +1,12 @@
 # Javascript Logic
 
 ### Example of using javascript in html.
-`function getLocation(location){
+```function getLocation(location){
   if (location){
     return <p>Location: {location}</p>;  ## This line is a javascript function with html in it.  It also uses a location property of another variable with javascript inside curly braces.
   }
 }
-`
+```
 
 
 ## tertiary logic

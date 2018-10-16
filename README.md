@@ -663,7 +663,7 @@ this.state = {
 
 ### You can add prevState as an argument for this.setState.  For example:
 
-`
+```
 handleMinusOne(){
         this.setState((prevState) => {
             return{
@@ -671,4 +671,4 @@ handleMinusOne(){
             };
         });
     };
-`
+```

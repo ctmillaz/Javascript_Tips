@@ -638,3 +638,37 @@ console.log(getName());
 
 
 ### Typically you will want to bind to the keyword this, in the constructor, as opposed to in the render function.  That way you don't need to run it multiple times.
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+# Component State
+
+### We need to create an interaction by referencing the methods in constructor and binding them to this, so that it can be used.
+### That way you can reference them in the render statement without having to re-render then each time there is a change.
+### State is like adding a property to constructor. Although the state is not equal to this.state.
+### State is equal to an object
+### Example:
+
+`
+this.state = {
+            count: 0
+        };
+`
+
+### We want the count to begin at 0.
+
+### You will then add this.setState() in functions to allow you to manipulate that state.
+
+### You can add prevState as an argument for this.setState.  For example:
+
+`
+handleMinusOne(){
+        this.setState((prevState) => {
+            return{
+                count: prevState.count - 1
+            };
+        });
+    };
+`
